@@ -28,7 +28,7 @@ test.group('New | Steps | clone', (group) => {
 
     try {
       process.env.GIT_TERMINAL_PROMPT = 0
-      await clone('adonisjs/foo-app', appPath, stepsCounter)
+      await clone('https://github.com/adonisjs/foo-app', appPath, stepsCounter)
     } catch ({ message }) {
       assert.isDefined(message)
     }
@@ -38,7 +38,7 @@ test.group('New | Steps | clone', (group) => {
     const appPath = path.join(__dirname, './yardstick')
     const stepsCounter = new Steps(1)
 
-    await clone('adonisjs/adonis-app', appPath, stepsCounter)
+    await clone('https://github.com/adonisjs/adonis-app', appPath, stepsCounter)
     await fs.pathExists(appPath)
     await fs.remove(appPath)
   }).timeout(0)
@@ -47,7 +47,7 @@ test.group('New | Steps | clone', (group) => {
     const appPath = path.join(__dirname, './yardstick-app')
     const stepsCounter = new Steps(1)
 
-    await clone('adonisjs/adonis-app', appPath, stepsCounter, 'develop')
+    await clone('https://github.com/adonisjs/adonis-app', appPath, stepsCounter, 'develop')
 
     await fs.pathExists(appPath)
     process.chdir(appPath)
